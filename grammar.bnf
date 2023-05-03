@@ -1,0 +1,56 @@
+LineOfText = (Word | Word, WhiteSpace| WhiteSpace, Word), [Newline], {Word,WhiteSpace}
+CommentedLine = ["---"], LineOfText;
+LanguageCommentMark = "#" | "//" | "--";
+CommentedLine = LanguageCommentMark, [WhiteSpace], {WhiteSpace}?, [LineOfText];
+Course = LanguageCommentMark, "course: ", LineOfText, {LineOfText};
+ProgramLanguage = LanguageCommentMark, "programLanguage: ", Word, Newline;
+TopicTest = LanguageCommentMark, "topicTest: ", LineOfText, Newline;
+Date = LineOfText;
+
+Annonce = LanguageCommentMark, "beginAnnonce", Newline, {CommentedLine}, Newline, LanguageCommentMark, 'endAnnonce'
+
+Metadata = Course, ProgramLanguage, TopicTest, Date, Annonce
+
+QuestionStart = ProgramLanguage, 'newQuestion';
+QuestionSeparator = '-------------------------------------------------';
+QuestionItem = QuestionStart, QuestionBlocks, QuestionSeparator;
+QuestionBlock = QuestionItemType, CodeBlock, Question, Answer, Hint
+QuestionItemList = {QuestionItem}+
+
+QuestionItemType = ProgramLanguage, '=', ('txtLn'|'anotherType')
+CodeBlock = LanguageCommentMark, 'beginCode', [Newline], LineOfText, {LineOfText}+, LanguageCommentMark, 'endCode';
+Question = LanguageCommentMark, '?begin', [Newline], CommentedLine, {CommentedLine}, LanguageCommentMark, '?end';
+Answer = LanguageCommentMark, '!begin', [Newline], CommentedLine, {CommentedLine}, LanguageCommentMark, '!end';
+Hint = LanguageCommentMark, 'beginHint', [Newline], CommentedLine, {CommentedLine}, LanguageCommentMark, 'beginHint';
+
+TestCollection = Metadata, QuestionItemList
+
+Word = Character, {Character};
+Symbol = "[" | "]" | "{" | "}" | "(" | ")" | "<" | ">"
+       | "'" | '"' | "=" | "|" | "." | "," | ";" | "-" |"`"
+       | "+" | "*" | "?" | "\n" | "\t" | "\r" | "\f" | "\b" ;
+
+Character = Letters | Digit | Symbol | "_" | " " ;
+
+WhiteSpace = (""|"\t"|" "), {"\t"|" "};
+Digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+Blank = '';
+Tab = '\t'; 
+Space = " ";
+Newline =  "\n" | "\r" | "\r\n" | "\n\r"
+Letters = (Latin|Cyrylic)
+Latin = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+       | "x" | "y" | "z";
+Cyrylic = "А"|"Б"|"В"|"Г"|"Ґ"|"Д"|"Е"|"Є"|"Ж"|"З"
+|"И"|"І"|"Ї"|"Й"|"К"|"Л"|"М"|"Н"|"О"|"П"|"Р"|"С"
+|"Т"|"У"|"Ф"|"Х"|"Ц"|"Ч"|"Ш"|"Щ"|"Ь"|"Ю"|"Я"
+|"а"|"б"|"в"|"г"|"ґ"|"д"|"е"|"є"|"ж"|"з"|"и"|"і"
+|"ї"|"й"|"к"|"л"|"м"|"н"|"о"|"п"|"р"|"с"|"т"|"у"
+|"ф"|"х"|"ц"|"ч"|"ш"|"щ"|"ь"|"ю"|"я"
+
