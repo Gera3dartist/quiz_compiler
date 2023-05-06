@@ -1,4 +1,3 @@
-Порожній шаблон виглядає так:
 -- course: 
 -- programLanguage: 
 -- topicTest:  
