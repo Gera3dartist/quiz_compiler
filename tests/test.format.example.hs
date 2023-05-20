@@ -18,7 +18,7 @@
 --------------
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 -- beginCode
 
 x `compr` y 
@@ -41,10 +41,10 @@ x `compr` y
 -- beginHint
 -- 'otherwise :: Bool', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 x `compr` y 
@@ -68,10 +68,10 @@ x `compr` y
 -- 'data Ordering', module Prelude
 -- 'охороннi вирази', 'Неформальний вступ'
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 x `compr` y 
@@ -95,10 +95,10 @@ r = ((1::Int) `compr`)
 -- beginHint
 -- Розділ '3.5 Sections', Haskell 2010 Language Report
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 fn [] = []
@@ -119,10 +119,10 @@ result = concat $ fn [1..3]
 -- beginHint
 -- 'List operations', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 fn s [] = s
@@ -142,10 +142,10 @@ fn s (x:ys) = [x,x] ++ fn s ys
 -- beginHint
 -- 'List operations', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 fmf = flip fmap
@@ -167,10 +167,10 @@ result = fmf [1..3]
 -- 'List operations', module Prelude
 -- 'Miscellaneous functions', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 fmf = flip fmap
@@ -193,10 +193,10 @@ result = fmf [1..3]
 -- 'List operations', module Prelude
 -- 'Miscellaneous functions', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
 
 -- newQuestion
--- itemType = txtLn
+-- itemType :txtLn
 --beginCode
 
 fmf = flip fmap
@@ -218,4 +218,4 @@ result = fmf ([1..3]::[Float])
 -- 'List operations', module Prelude
 -- 'Miscellaneous functions', module Prelude
 -- endHint
--------------------------------------------------
+-- endQuestion
