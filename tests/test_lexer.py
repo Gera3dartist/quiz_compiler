@@ -73,28 +73,28 @@ r = ((1::Int) `compr`)
 """
     question = question * 2
     res = [
-        Token(TokenTypes.BLOCK, "newQuestion"),
+        Token(TokenTypes.BLOCK_START, "newQuestion"),
         Token(TokenTypes.KEY, "itemType"),
         Token(TokenTypes.KEY_SEPARATOR, ":"),
         Token(TokenTypes.VALUE, "txtLn"),
-        Token(TokenTypes.BLOCK, "beginCode"),
+        Token(TokenTypes.BLOCK_START, "beginCode"),
         Token(TokenTypes.VALUE, "x `compr` y"),
         Token(TokenTypes.VALUE, "| x < y = LT"),
         Token(TokenTypes.VALUE, "| x > y = GT"),
         Token(TokenTypes.VALUE, "| otherwise = EQ"),
         Token(TokenTypes.VALUE, "r = ((1::Int) `compr`)"),
-        Token(TokenTypes.BLOCK, "endCode"),
-        Token(TokenTypes.BLOCK, "?begin"),
+        Token(TokenTypes.BLOCK_END, "endCode"),
+        Token(TokenTypes.BLOCK_START, "?begin"),
         Token(TokenTypes.VALUE, "Що буде результатом завантаження коду і виконання команди"),
         Token(TokenTypes.VALUE, "> True == otherwise"),
-        Token(TokenTypes.BLOCK, "?end"),
-        Token(TokenTypes.BLOCK, "!begin"),
+        Token(TokenTypes.BLOCK_END, "?end"),
+        Token(TokenTypes.BLOCK_START, "!begin"),
         Token(TokenTypes.VALUE, "= True"),
-        Token(TokenTypes.BLOCK, "!end"),
-        Token(TokenTypes.BLOCK, "beginHint"),
+        Token(TokenTypes.BLOCK_END, "!end"),
+        Token(TokenTypes.BLOCK_START, "beginHint"),
         Token(TokenTypes.VALUE, "'otherwise :: Bool', module Prelude"),
-        Token(TokenTypes.BLOCK, "endHint"),
-        Token(TokenTypes.BLOCK, "endQuestion"),
+        Token(TokenTypes.BLOCK_END, "endHint"),
+        Token(TokenTypes.BLOCK_END, "endQuestion"),
     ] * 2
 
     lexer = Lexer(question)

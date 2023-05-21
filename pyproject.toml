@@ -8,6 +8,8 @@ packages = [{include = "quiz_compiler"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+google-api-python-client = "^2.86.0"
+click = "^8.1.3"
 
 
 [tool.poetry.group.dev.dependencies]
