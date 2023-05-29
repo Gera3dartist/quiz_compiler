@@ -1,6 +1,9 @@
 from enum import Enum
 import itertools
+from pathlib import Path
 import typing as t
+
+from src.utils import get_build_directory
 
 
 ASSIGN = 'ASSIGN'
@@ -423,7 +426,7 @@ class NodeVisitor(object):
         raise Exception('No visit_{} method'.format(type(node).__name__))
 
 
-class Interpreter(NodeVisitor):
+class Compiler(NodeVisitor):
     def __init__(self, parser):
         self.parser = parser
         self.curent_children = {}
@@ -462,6 +465,14 @@ class Interpreter(NodeVisitor):
             self.state['items'].append(self.curent_children)
             self.curent_children = {}
 
-    def interpret(self):
+    def compile(self) -> Key | Value | Compound | BinOp | None:
         tree = self.parser.parse()
         return self.visit(tree)
+    
+    def dump_state(self) -> None:
+        """
+        Dumps state to json file lacated in directory where build is
+        """
+        import json
+        with open(get_build_directory() / 'state.json', 'w') as f:
+            json.dump(self.state, f, indent=4, ensure_ascii=False)

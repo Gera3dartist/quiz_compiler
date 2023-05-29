@@ -1,4 +1,4 @@
-from src.ast_parser import Compound, Interpreter, Lexer, Token, TokenTypes, Parser, Value, Key, BinOp
+from src.ast_parser import Compound, Compiler, Lexer, Token, TokenTypes, Parser, Value, Key, BinOp
 
 def test_lexer_parse_metadata():
     metadata = """
@@ -55,7 +55,7 @@ r = ((1::Int) `compr`)
     lexer = Lexer(question)
     parser = Parser(lexer)
 
-    parsed_question = parser.block()
+    parsed_question = parser.item()
 
     assert parsed_question.children == [
         BinOp(Key(Token(TokenTypes.KEY, 'itemType')), Token(TokenTypes.KEY_SEPARATOR, ':'), Value(Token(TokenTypes.VALUE, 'txtLn'))),
@@ -70,8 +70,8 @@ def test_parse_all():
         text = f.read()
     lexer = Lexer(text)
     parser = Parser(lexer)
-    compiler = Interpreter(parser)
-    compiler.interpret()
+    compiler = Compiler(parser)
+    compiler.compile()
     print(compiler.state)
 
     
