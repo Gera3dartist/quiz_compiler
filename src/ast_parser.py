@@ -1,6 +1,5 @@
 from enum import Enum
-import itertools
-from pathlib import Path
+
 import typing as t
 
 from src.utils import get_build_directory
@@ -9,9 +8,9 @@ from src.utils import get_build_directory
 ASSIGN = 'ASSIGN'
 META_COMMENT = '---'
 KNOWN_COMMENTS = {
-    'haskell': '--', 
+    'hs': '--', 
     'c': '//', 
-    'python': '#'
+    'py': '#'
 }
 
 LINE_BREAKS = {'\n', '\r', '\r\n', '\n\r'}
@@ -59,11 +58,6 @@ class TokenTypes(Enum):
     EOF = 'EOF'
     ITEM_START = 'ITEM_START'
     ITEM_END = 'ITEM_END'
-
-
-
-def is_comment(char: str, comment_type: str) -> bool:
-    return KNOWN_COMMENTS[comment_type][0] == char
 
 
 class Token:
@@ -151,11 +145,12 @@ class Empty(ASTNode):
 
 
 class Lexer:
-    def __init__(self, text: str, comment_separator=KNOWN_COMMENTS['haskell']) -> None:
+    def __init__(self, text: str, comment_separator=KNOWN_COMMENTS['hs']) -> None:
         self.text = text
         self.pos = 0
         self.current_charachter = self.text[self.pos]
         self.comment_separator = comment_separator
+        self.metacomment = f'{comment_separator}{comment_separator[0]}'
     
     def error(self):
         raise ValueError("Invalid character")
@@ -221,9 +216,9 @@ class Lexer:
         Skip the line if metacomment
         """
         chars = []
-        meta_comment_length = len(META_COMMENT)
+        meta_comment_length = len(self.metacomment)
         meta_comment = self.text[self.pos:(self.pos+meta_comment_length)]
-        if meta_comment == META_COMMENT:
+        if meta_comment == self.metacomment:
             while self.current_charachter is not None:
                 if self.current_charachter in LINE_BREAKS:
                     break
@@ -238,7 +233,7 @@ class Lexer:
             elif self.current_charachter in LINE_BREAKS:
                 self.advance()
             # handle meta comments
-            elif self.current_charachter in META_COMMENT and (meta_comment := self.parse_meta_comment()):
+            elif self.current_charachter in self.metacomment and (meta_comment := self.parse_meta_comment()):
                 self.advance()
                 # return Token(TokenTypes.META_COMMENT, meta_comment)
             elif self.current_charachter in self.comment_separator:
@@ -469,10 +464,11 @@ class Compiler(NodeVisitor):
         tree = self.parser.parse()
         return self.visit(tree)
     
-    def dump_state(self) -> None:
+    def dump_state(self, name: str) -> None:
         """
         Dumps state to json file lacated in directory where build is
         """
         import json
-        with open(get_build_directory() / 'state.json', 'w') as f:
+        file_path = get_build_directory() / (f'{name}.json' or 'state.json')
+        with open(file_path, 'w') as f:
             json.dump(self.state, f, indent=4, ensure_ascii=False)

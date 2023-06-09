@@ -3,7 +3,7 @@ Uses python dependency injection to create a container for the application.
 """
 from dependency_injector import containers, providers
 from oauth2client.client import OAuth2Credentials
-from src.services.compiler import CompilerService
+from src.services.compiler import CodeGeneratorService
 
 
 from src.services.google_workspace import (
@@ -32,4 +32,4 @@ class ApplicationContainer(containers.DeclarativeContainer):
         form_service=form_service,
         drive_service=drive_service)
     
-    compiler_service = providers.Resource(CompilerService, drive_service=drive_service)
+    compiler_service = providers.Resource(CodeGeneratorService)

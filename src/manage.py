@@ -1,14 +1,16 @@
-from collections import defaultdict
-import json
+
+import os
+from pathlib import Path
 import pprint
 import click
 from dependency_injector.wiring import inject, Provide
 
-from src.ast_parser import Lexer, Parser, Compiler
+
 from src.constants import FORM_ID
 from src.container import ApplicationContainer as Container
-from src.services.compiler import CompilerService
+from src.services.compiler import CodeGeneratorService
 from src.services.google_workspace import GoogleWorkspaceService
+from src.utils import get_build_directory
 
 @click.group()
 def cli():
@@ -21,24 +23,33 @@ def cli():
 @inject
 def compile(
     path: str | bytes, 
-    compiler_service: CompilerService = Provide[Container.compiler_service],
+    compiler_service: CodeGeneratorService = Provide[Container.compiler_service],
     google_service: GoogleWorkspaceService = Provide[Container.google_service]
     ):
     """Opens file and compiles it"""
-    google_service.remove_images()
-    compiler_service.compile_file(path)
-    compiler_service.convert_code_image()
-    google_service.upload_images_to_drive()
+    # get name of the file from path
+    state_name = Path(os.path.basename(path)).with_suffix('').name
 
+    # check that state for this file already exists
+    if f'{state_name}.json' in os.listdir(get_build_directory()):
+        try:
+            google_service.remove_images(state_name)
+        except Exception as e:
+            print(e)
+            print('Failed to remove images from google drive')
+
+    compiler_service.compile_file(path)
+    compiler_service.convert_code_image(state_name)
+    google_service.upload_images_to_drive(state_name)
 
 
 @click.command()
 @inject
-def check_state(google_service: GoogleWorkspaceService = Provide[Container.google_service]):
+def show_state():
     """Displays state of the application"""
-    print('SHOWING STATE')
-    for q in google_service.questions_from_state():
-        pprint.pprint(q)
+    print('Showing available states')
+    for state  in (f for f in os.listdir(get_build_directory()) if f.endswith('.json')):
+        print(f"\t - {state.replace('.json', '')}")
 
 
 @click.command()
@@ -52,17 +63,22 @@ def create_form(google_service: GoogleWorkspaceService = Provide[Container.googl
 @click.command()
 @inject
 @click.option('--form_id', help='Id of the form to update', default=FORM_ID)
-def upload_to_google(form_id: str,  google_service: GoogleWorkspaceService = Provide[Container.google_service]):
+@click.option('--state_name', help='name of the state to use', default='state')
+def upload_to_google(form_id: str, state_name: str,  google_service: GoogleWorkspaceService = Provide[Container.google_service]):
     """Displays state of the application"""
     print('FORM_ID: %s' % form_id)
+    if not os.path.exists(get_build_directory() / f'{state_name}.json'):
+        raise ValueError(f"State {state_name} does not exist")
 
-    result = google_service.update_form_with_questions(form_id)
+    result = google_service.update_form_with_questions(form_id, state_name)
     print(result)
 
+# TODO:
+# 1. Create form per variant
 
 cli.add_command(compile)
 cli.add_command(upload_to_google)
-cli.add_command(check_state)
+cli.add_command(show_state)
 cli.add_command(create_form)
 
 

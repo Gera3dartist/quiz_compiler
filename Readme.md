@@ -7,7 +7,7 @@ Tools:
 2. [Google Admin Site] [https://console.cloud.google.com/apis/api/classroom.googleapis.com/metrics?project=vibrant-arcanum-348221]
 
 API to use:
-1. [Google Forms - Question object][https:``//developers.google.com/forms/api/reference/rest/v1/forms#question]
+1. [Google Forms - Question object][https://developers.google.com/forms/api/reference/rest/v1/forms#question]
 2. [Classroom API][https://developers.google.com/classroom/reference/rest/?apix=true]
 
 Usage.
@@ -19,3 +19,8 @@ Usage.
 ```python
 python -m src.manage upload-to-google --form_id 1XndvXhGdXufBqBNwHFyfXwz_hkiie83Px-U5oWvs3zI
 ```
+
+Improvements:
+# TODO:
+# 1. Generate form per variant
+# 2. Response validation

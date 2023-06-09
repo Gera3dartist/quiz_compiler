@@ -1,0 +1,30 @@
+@startuml Usecases
+scale 3
+actor User as U
+box "Розроблена система" #White
+participant CLIClient as CLI
+participant CodeGeneratorService as CGS
+participant GoogleWorkspaceService as GWS
+database Артефакти as State
+end box
+participant GoogleAPI as GAPI
+
+U -> CLI : компіляція файлу
+activate CLI
+activate CGS
+CLI -> CGS: компіляція файлу з DSL
+
+CGS -> CGS: парсинг, генерація коду 
+CGS -> State: зберігає цільовий код
+CGS -> State: зберігає картнинки у файлову систему
+CLI -> GWS: генерація ID картинок
+deactivate CGS
+activate GWS
+State <- GWS: читання картинок
+GWS -> GAPI: завантаження в хмару
+GWS -> State: збереження Google ID
+GWS -> CLI: успішно збережено
+CLI -> U: компіляція завершена
+deactivate GWS
+
+@enduml

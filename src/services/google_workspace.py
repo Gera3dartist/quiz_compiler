@@ -107,9 +107,9 @@ class GoogleWorkspaceService(StateMixin):
                 }}
             }
     
-    def questions_from_state(self) -> Sequence[dict]:
+    def questions_from_state(self, state_name) -> Sequence[dict]:
         result = []
-        for idx, question in enumerate(self.state["items"]):
+        for idx, question in enumerate(self.get_state(state_name)["items"]):
             _question = question['question']
             _question.replace("\n", " ").replace("\r", " ")
 
@@ -127,9 +127,9 @@ class GoogleWorkspaceService(StateMixin):
                 )
         return result
     
-    def update_form_with_questions(self, form_id: str) -> MutableMapping:
+    def update_form_with_questions(self, form_id: str, state_name: str) -> MutableMapping:
         body = {
-            "requests": self.questions_from_state()
+            "requests": self.questions_from_state(state_name)
         }
         return self.form_service.forms().batchUpdate(formId=form_id, body=body).execute()
     
@@ -165,19 +165,21 @@ class GoogleWorkspaceService(StateMixin):
             folder_id = response['files'][0]['id']
         return folder_id
     
-    def upload_images_to_drive(self) -> None:
+    def upload_images_to_drive(self, state_name: str) -> None:
+
         folder_id = self.maybe_create_folder_on_google_drive('TestImages')
-        for question in self.state["items"]:
+        for question in self.get_state(state_name)["items"]:
             image_path = question['code_image_path']
             image_id = self.upload_image(image_path, folder_id)
             question['image_drive_id'] = image_id
-        self.dump_state()
+        self.dump_state(state_name)
     
-    def remove_images(self) -> None:
+    def remove_images(self, state_name: str) -> None:
         """
         Removes images from the google drive by file id
         """
-        for question in self.state["items"]:
+        state = self.get_state(state_name)
+        for question in state["items"]:
             if image_id := question.get('image_drive_id'):
                 logger.info('Removing image with id %s from drive', image_id)
                 self.drive_service.files().delete(fileId=image_id).execute()

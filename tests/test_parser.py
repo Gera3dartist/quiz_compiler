@@ -73,5 +73,3 @@ def test_parse_all():
     compiler = Compiler(parser)
     compiler.compile()
     print(compiler.state)
-
-    

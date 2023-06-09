@@ -15,22 +15,25 @@ def get_build_directory() -> Path:
         build_dir.mkdir()
     return build_dir
 
-def get_image_directory() -> Path:
+def get_image_directory(subfolder: str = None) -> Path:
     """
     Returns image directory creates directory if not exists
     """
-
-    image_dir = get_build_directory() / 'images'
+    if subfolder is None:
+        image_dir = get_build_directory() / 'images' 
+    else:
+        image_dir = get_build_directory() / 'images' / subfolder
     if not image_dir.exists():
         image_dir.mkdir()
     return image_dir
 
 
-def get_image_path(name: str) -> Path:
+def get_image_path(name: str, subfolder: str = None) -> Path:
     """
     Returns image path 
     """
-    return get_image_directory() / name
+    
+    return get_image_directory(subfolder) / name
 
 
 def get_font_directory() -> Path:
@@ -52,6 +55,7 @@ def generate_random_name() -> str:
 
 
 def create_image_from_multiline_text(
+        state_name: str,
         text: str, 
         font_size=FONT_SIZE, 
         padding=10, 
@@ -77,6 +81,6 @@ def create_image_from_multiline_text(
     for line in lines:
         draw.text((padding, y), line, fill='black', font=font)
         y += line_height
-    image_path = get_image_path(image_name or generate_random_name())
+    image_path = get_image_path(image_name or generate_random_name(), subfolder=state_name)
     image.save(image_path)
     return image_path

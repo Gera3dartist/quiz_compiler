@@ -1,0 +1,203 @@
+<mxfile host="app.diagrams.net" modified="2023-06-09T18:53:01.366Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="fK0UlxgLaUitpYl4UJpY" version="21.3.7" type="device" pages="4">
+  <diagram name="Page-1" id="sx1lJQ3ilDAfASzjYg5-">
+    <mxGraphModel dx="1041" dy="710" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-18" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=12 12;" parent="1" vertex="1">
+          <mxGeometry x="74" y="90" width="386" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="135" y="360" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="O1wAwdUjmhtSZmEShDAb-3" target="O1wAwdUjmhtSZmEShDAb-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-3" value="Сервіс Компілятора" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="235" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O1wAwdUjmhtSZmEShDAb-4" target="O1wAwdUjmhtSZmEShDAb-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="385" y="330" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="385" y="333" />
+              <mxPoint x="264" y="333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-24" value="додає ідентифікатори &lt;br&gt;файлів в сервісах гугл" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="O1wAwdUjmhtSZmEShDAb-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.5701" y="1" relative="1" as="geometry">
+            <mxPoint x="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="O1wAwdUjmhtSZmEShDAb-4" target="O1wAwdUjmhtSZmEShDAb-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-22" value="Drive API&lt;br&gt;Forms API&lt;br&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="O1wAwdUjmhtSZmEShDAb-21" vertex="1" connectable="0">
+          <mxGeometry x="-0.175" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-4" value="Сервіс Гугл API" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="230" width="90" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-5" value="Стан" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="234" y="220" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="O1wAwdUjmhtSZmEShDAb-7" target="O1wAwdUjmhtSZmEShDAb-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-23" value="запустити процес компіляції" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="O1wAwdUjmhtSZmEShDAb-16" vertex="1" connectable="0">
+          <mxGeometry x="-0.5915" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="O1wAwdUjmhtSZmEShDAb-7" target="O1wAwdUjmhtSZmEShDAb-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-19" value="завантажити в Гугл&lt;br&gt;питання/картинки/форми" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="O1wAwdUjmhtSZmEShDAb-17" vertex="1" connectable="0">
+          <mxGeometry x="-0.5979" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-7" value="Консольний клієнт" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="114" y="110" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-20" value="Google API" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="185" width="90" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.45;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O1wAwdUjmhtSZmEShDAb-25" target="O1wAwdUjmhtSZmEShDAb-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O1wAwdUjmhtSZmEShDAb-25" value="input file&lt;br&gt;.hs, .py" style="shape=card;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="210" y="7" width="70" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VehfWzUpB3T1NlGHU8_y" name="Page-2">
+    <mxGraphModel dx="1041" dy="658" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q-7p5E16OyK8unBaJQC1-2" value="Користувач" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="184" y="319" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-3" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;" parent="1" vertex="1">
+          <mxGeometry x="260" y="170" width="240" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-4" value="Користувацькі сценарії з сервісами Google" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="270" y="140" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-6" value="оновити форму з питаннями" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="295" y="180" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-7" value="завантажити картинки в Google Drive" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="295" y="260" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-8" value="видалити картинки з Google Drive" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="295" y="340" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-9" value="створити форму&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="295" y="420" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q-7p5E16OyK8unBaJQC1-10" value="побудувати запити на створення питань з файлу стану" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="490" width="170" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dnsNEX0cRhfxWt8bdnR3" name="onion">
+    <mxGraphModel dx="1041" dy="658" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="230" y="140" width="460" height="460" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="290" y="200" width="340" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="350" y="260" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-1" value="Компілятор" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="400" y="310" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9_i2FED7fTdEVkhOPTdZ-3" target="9_i2FED7fTdEVkhOPTdZ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-3" value="Доменні сервіси" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="355" width="86" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-5" value="Сервіс компілятора" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-7" value="Сервіс Google Workspace" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.07;entryY=0.252;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9_i2FED7fTdEVkhOPTdZ-8" target="9_i2FED7fTdEVkhOPTdZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-8" value="&amp;nbsp;Прикладні сервіси" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="270" width="86" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9_i2FED7fTdEVkhOPTdZ-11" target="9_i2FED7fTdEVkhOPTdZ-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-11" value="Інфраструктурний рівень" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="97" y="192" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-13" value="консольний клієнт" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="415" y="150" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-14" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;shadow=0;fillColor=#000000;" edge="1" parent="1" target="9_i2FED7fTdEVkhOPTdZ-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="150" as="sourcePoint" />
+            <mxPoint x="680" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9_i2FED7fTdEVkhOPTdZ-15" value="Напрямок залежностей" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="630" y="100" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="AC_E-dtemw3OC17_2uSn" name="interaction diagram">
+    <mxGraphModel dx="1041" dy="710" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="896a-u2IJzUh8asHS7z5-2" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="400" as="sourcePoint" />
+            <mxPoint x="120" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="896a-u2IJzUh8asHS7z5-3" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="224.5" y="400" as="sourcePoint" />
+            <mxPoint x="224.5" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="896a-u2IJzUh8asHS7z5-4" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="60" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="896a-u2IJzUh8asHS7z5-5" value="&lt;div&gt;CodeGeneratorService&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="130" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="896a-u2IJzUh8asHS7z5-6" value="GoogleWorkspaceServiceу" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="369" y="120" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="896a-u2IJzUh8asHS7z5-7" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="354.5" y="400" as="sourcePoint" />
+            <mxPoint x="354.5" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
