@@ -1,0 +1,32 @@
+@startuml Usecases
+scale 3
+' title Внутрішнє представлення цільового коду
+left to right direction
+
+rectangle "Розроблена система" {
+    usecase "авторизуватись в Google Workspace" as login
+    usecase "зкомпілювати файл" as compile
+    usecase "очистити старі картинки" as cleanup
+    usecase "перетворити код в картинки" as do_image
+    usecase "завантажити картинки в Google" as up_image
+    usecase "створити форму" as form
+    usecase "показати проекти" as state
+    usecase "завантажити в гугл" as upload
+    usecase "Покажи помилку" as no_project
+    usecase "оновити форму" as up_form
+}
+actor Користувач as user
+compile <.. cleanup : extends
+compile <.. do_image : icludes
+compile <.. up_image : icludes
+upload <.. up_form : icludes
+upload <.. no_project : extends
+
+user --> login
+user --> compile
+user --> form
+user --> state
+user --> upload
+
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml Usecases
+scale 3
+title Діаграма класів GoogleWorkspaceService
+
+class StateMixin {
+    get_state()
+    dump_state()
+
+}
+
+class FormService {
+    create()
+    batchUpdate()
+}
+
+class DriveService {
+    files_create()
+    files_list()
+    files_delete()
+}
+
+class GoogleWorkspaceService extends StateMixin {
+    populate_question()
+    update_form_with_questions()
+    upload_images_to_drive()
+    upload_images_to_drive()
+    remove_images()
+    ...
+}
+
+GoogleWorkspaceService o-- FormService
+GoogleWorkspaceService o-- DriveService
+
+@enduml

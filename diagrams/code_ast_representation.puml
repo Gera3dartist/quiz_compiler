@@ -1,0 +1,21 @@
+@startuml Usecases
+scale 3
+title Внутрішнє представлення цільового коду
+
+
+rectangle "Compound(name=program)" as program
+rectangle "Compound(name=metainfo)" as metainfo
+rectangle "Compound(name=item_1)" as item1
+rectangle "Compound(name=item_N)" as itemN
+rectangle "BinOp(Key, Value)" as binop0
+rectangle "BinOp(Key, Value)" as binop1
+rectangle "BinOp(Key, Value)" as binop2
+
+program --> metainfo
+program --> item1
+program --> itemN
+item1  "1" --> "many"  binop1
+itemN "1" --> "many" binop2
+metainfo "1" --> "many" binop0
+
+@enduml

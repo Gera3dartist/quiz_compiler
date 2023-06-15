@@ -1,0 +1,30 @@
+@startuml Usecases
+scale 3
+actor Monolith as Mono
+title Historical ticket import
+box "TicketHub" #White
+participant Comsumer as consumer
+participant ZDService as ZS
+end box
+
+participant ZD as ZD
+
+Mono -> consumer : import tickets
+consumer -> ZS: process import event
+activate consumer
+activate ZS
+
+activate ZD
+ZS -> ZD: find users
+ZD -> ZS: return users
+ZS -> ZD: create non existing users
+ZD -> ZS: return users
+ZS -> ZS: chunk payload by defined size
+ZS -> ZD: create tickets
+ZD -> ZS: return job status
+deactivate ZD
+ZS -> consumer: return import result
+deactivate ZS
+deactivate consumer
+
+@enduml

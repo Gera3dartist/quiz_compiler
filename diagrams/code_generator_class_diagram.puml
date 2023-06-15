@@ -1,0 +1,27 @@
+@startuml Usecases
+scale 3
+title Діаграма класів генератора коду
+
+
+class Lexer {
+    Token get_next_token()
+}
+
+class Parser {
+    ASTNode parse()
+}
+
+class CodeGenerator {
+    compile()
+    visit_BinOp()
+    ...
+}
+
+Parser o-- Lexer
+CodeGenerator o-- Parser
+class BinOp extends ASTNode
+class Key extends ASTNode
+class Value extends ASTNode
+class Compound extends ASTNode
+
+@enduml
