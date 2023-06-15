@@ -128,6 +128,7 @@ class Compound(ASTNode):
     
     def __iter__(self):
         return iter(self.children)
+    
     def __eq__(self, __value: object) -> bool:
         return self.name == __value.name and self.children == __value.children
 
@@ -407,7 +408,7 @@ class Parser:
 
 ###############################################################################
 #                                                                             #
-#  INTERPRETER                                                                #
+#  Code Generator                                                                #
 #                                                                             #
 ###############################################################################
 
@@ -421,7 +422,7 @@ class NodeVisitor(object):
         raise Exception('No visit_{} method'.format(type(node).__name__))
 
 
-class Compiler(NodeVisitor):
+class CodeGenerator(NodeVisitor):
     def __init__(self, parser):
         self.parser = parser
         self.curent_children = {}

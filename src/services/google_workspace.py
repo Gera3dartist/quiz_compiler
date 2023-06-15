@@ -42,9 +42,13 @@ def authorize_credentials() -> OAuth2Credentials:
     credentials = STORAGE.get()
     # If the credentials doesn't exist in the storage location then run the flow
     if credentials is None or credentials.invalid:
+        logger.info('Authorizing credentials')
+
         flow = flow_from_clientsecrets(PATH, scope=SCOPES)
         http = httplib2.Http()
         credentials = run_flow(flow, STORAGE, http=http)
+    else:
+        logger.info('Credenials already authorized')
     return credentials
 
 

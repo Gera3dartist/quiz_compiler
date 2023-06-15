@@ -1,6 +1,7 @@
 @startuml Usecases
 scale 3
 actor User as U
+title Сценарій використання: компіляція
 box "Розроблена система" #White
 participant CLIClient as CLI
 participant CodeGeneratorService as CGS

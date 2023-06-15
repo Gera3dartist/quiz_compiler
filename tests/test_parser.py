@@ -1,4 +1,4 @@
-from src.ast_parser import Compound, Compiler, Lexer, Token, TokenTypes, Parser, Value, Key, BinOp
+from src.ast_parser import Compound, CodeGenerator, Lexer, Token, TokenTypes, Parser, Value, Key, BinOp
 
 def test_lexer_parse_metadata():
     metadata = """
@@ -70,6 +70,6 @@ def test_parse_all():
         text = f.read()
     lexer = Lexer(text)
     parser = Parser(lexer)
-    compiler = Compiler(parser)
+    compiler = CodeGenerator(parser)
     compiler.compile()
     print(compiler.state)

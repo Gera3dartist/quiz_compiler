@@ -3,34 +3,56 @@ Value = { LineOfText }- ;
 KeyDivider = ":" ;
 
 KnownKey
-  = "course" | "programLanguage" | "topicTest" | "date" | "itemType";
+  = "course"
+  | "programLanguage"
+  | "topicTest"
+  | "date"
+  | "itemType"
+  ;
 
 BlockStart
-  = "beginAnnonce" | "?begin" | "!begin" | "beginHint" | "beginCode";
+  = "beginAnnonce"
+  | "?begin"
+  | "!begin"
+  | "beginHint"
+  | "beginCode"
+  ;
 
 BlockEnd
-  = "endAnnonce" | "?end" | "!end" | "endHint" | "endCode";
+  = "endAnnonce"
+  | "?end"
+  | "!end"
+  | "endHint"
+  | "endCode"
+  ;
 
 KeyValue = KnownKey , KeyDivider , Value ;
 
 Block = BlockStart , Value , BlockEnd , { Value } ;
 
-ListOfStatements = { KeyValue , Block };
+ListOfStatements = { KeyValue , Block } ;
 
-CompoundBlock = "newQuestion", ListOfStatements, "endQuestion", {ListOfStatements};
+QuestionBlock = "newQuestion" , ListOfStatements ,
+  "endQuestion" ;
 
-Metadata = [MetaCommentedLine], KeyValue, Block {KeyValue, MetaCommentedLine};
-TestCollection = Metadata,  CompoundBlock, {CompoundBlock, MetaCommentedLine};
+Metadata = [ MetaCommentedLine ] , KeyValue , Block ,
+  { KeyValue , MetaCommentedLine } ;
 
-LineOfText = [ WhiteSpace ] , Word , [ WhiteSpace ] , [ Newline ] , { Word | WhiteSpace } ;
+LineOfText = [ WhiteSpace ] , Word , [ WhiteSpace ] ,
+  [ Newline ] , { Word | WhiteSpace } ;
 
 WhiteSpace = { "\t" | " " }- ;
 
-MetaCommentedLine = "---"|"##"|"///" , { WhiteSpace } , [ LineOfText ] ;
+MetaCommentedLine
+  = "---"
+  | "##"
+  | "///" , { WhiteSpace } , [ LineOfText ]
+  ;
 
 Word = { Character }- ;
 
-Symbol = "[" | "]" | "{" | "}" | "(" | ")" | "<"
+Symbol
+  = "[" | "]" | "{" | "}" | "(" | ")" | "<"
   | ">" | "'" | '"' | "=" | "|" | "." | ","
   | ";"
   ;

@@ -4,7 +4,7 @@ import logging
 import os
 from pathlib import Path
 from src.services import StateMixin
-from src.ast_parser import KNOWN_COMMENTS, Compiler, Lexer, Parser
+from src.ast_parser import KNOWN_COMMENTS, CodeGenerator, Lexer, Parser
 from src.utils import create_image_from_multiline_text
 
 
@@ -25,7 +25,7 @@ class CodeGeneratorService(StateMixin):
             text = f.read()
             lexer = Lexer(text, comment_separator=KNOWN_COMMENTS[file_name.suffix.replace('.', '')])
             parser = Parser(lexer)
-            compiler = Compiler(parser)
+            compiler = CodeGenerator(parser)
             compiler.compile()
             compiler.dump_state(state_name)
     

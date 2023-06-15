@@ -1,7 +1,6 @@
 
 import os
 from pathlib import Path
-import pprint
 import click
 from dependency_injector.wiring import inject, Provide
 
@@ -9,7 +8,7 @@ from dependency_injector.wiring import inject, Provide
 from src.constants import FORM_ID
 from src.container import ApplicationContainer as Container
 from src.services.compiler import CodeGeneratorService
-from src.services.google_workspace import GoogleWorkspaceService
+from src.services.google_workspace import GoogleWorkspaceService, authorize_credentials
 from src.utils import get_build_directory
 
 @click.group()
@@ -73,6 +72,15 @@ def upload_to_google(form_id: str, state_name: str,  google_service: GoogleWorks
     result = google_service.update_form_with_questions(form_id, state_name)
     print(result)
 
+
+@click.command()
+@inject
+def google_login():
+    print('Logging in to google - Started')
+    authorize_credentials()
+    print('Logging in to google - Success')
+
+
 # TODO:
 # 1. Create form per variant
 
@@ -80,6 +88,7 @@ cli.add_command(compile)
 cli.add_command(upload_to_google)
 cli.add_command(show_state)
 cli.add_command(create_form)
+cli.add_command(google_login)
 
 
 if __name__ == '__main__':
