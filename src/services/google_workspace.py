@@ -1,5 +1,4 @@
 
-from functools import partial
 import logging
 import os
 from typing import MutableMapping
