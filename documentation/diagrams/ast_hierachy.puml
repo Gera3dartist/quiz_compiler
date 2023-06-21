@@ -1,0 +1,11 @@
+@startuml Usecases
+scale 3
+title Діаграма класів ASTNode
+
+
+class BinOp extends ASTNode
+class Key extends ASTNode
+class Value extends ASTNode
+class Compound extends ASTNode
+
+@enduml
