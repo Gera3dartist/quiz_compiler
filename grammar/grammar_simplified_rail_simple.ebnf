@@ -41,6 +41,9 @@ Metadata = [ MetaCommentedLine ] , KeyValue , Block ,
 LineOfText = [ WhiteSpace ] , Word , [ WhiteSpace ] ,
   [ Newline ] , { Word | WhiteSpace } ;
 
+TestCollection = [ MetaCommentedLine ] , Metadata ,
+  { QuestionBlock };
+
 WhiteSpace = { "\t" | " " }- ;
 
 MetaCommentedLine

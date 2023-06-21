@@ -10,11 +10,20 @@ API to use:
 1. [Google Forms - Question object][https://developers.google.com/forms/api/reference/rest/v1/forms#question]
 2. [Classroom API][https://developers.google.com/classroom/reference/rest/?apix=true]
 
-Usage.
+# Installation
+## Preconditions: python of vesion 3.11 must be installed
+1. Install pythons virtual env using command: 
+```bash virtulenv --python=python3.11 venv```
+2. Activate virtual environment:
+```bash source venv/bin/activate```
+3. Install poetry from [https://python-poetry.org/docs/]
+4. Install dependencies using command: `poetry install`
+
+# Usage
 1. In order to show state:
-`python`
+`python  -m src.manage show-state`
 2. In order to compile:
-`python -m src.manage compile --path /Users/andriigerasymchuk/private-repositories/quiz_compiler/tests/test.format.example.hs
+`python -m src.manage compile --path ~/path-to-repo/quiz_compiler/tests/test.format.example.hs`
 3. Update form with data:
 ```python
 python -m src.manage upload-to-google --form_id 1XndvXhGdXufBqBNwHFyfXwz_hkiie83Px-U5oWvs3zI

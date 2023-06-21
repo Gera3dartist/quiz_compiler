@@ -17,9 +17,9 @@ rectangle "Розроблена система" {
 }
 actor Користувач as user
 compile <.. cleanup : extends
-compile <.. do_image : icludes
-compile <.. up_image : icludes
-upload <.. up_form : icludes
+compile <.. do_image : includes
+compile <.. up_image : includes
+upload <.. up_form : includes
 upload <.. no_project : extends
 
 user --> login
